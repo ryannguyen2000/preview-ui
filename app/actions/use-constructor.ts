@@ -12,9 +12,7 @@ const fetcher = async (url: string) => {
 
 export function useConstructorDataAPI(documentId?: string, pageName?: string) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const prevComponentRef = useRef<string | null>(null); // Lưu component trước đó
-
-  // Trong trang http://localhost:4444/preview-custom-widget
+  const prevComponentRef = useRef<string | null>(null);
 
   const { data, error } = useSWR(
     pageName
@@ -80,13 +78,11 @@ export async function rebuilComponentMonaco(componentString: string) {
 export function usePreviewUI(projectId?: string) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  const { data: dataPreviewUI, error } = useSWR(
+  const { data: dataPreviewUI } = useSWR(
     projectId ? `${API_URL}/api/preview-ui?projectId=${projectId}` : null,
     fetcher,
     { revalidateOnFocus: false, refreshInterval: 60000 }
   );
-
-  console.log('usePreviewUI', dataPreviewUI);
 
   if (!dataPreviewUI) return { data: {}, isLoading: true };
 
