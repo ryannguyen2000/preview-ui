@@ -1,13 +1,6 @@
-"use client"
+'use client';
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useMemo,
-  ReactNode,
-} from "react";
+import React, { createContext, useContext, useState, useCallback, useMemo, ReactNode } from 'react';
 
 // Định nghĩa kiểu dữ liệu cho Context
 interface AppContextType {
@@ -25,7 +18,7 @@ function AppProvider({ children }: { children: ReactNode }) {
   const [count, setCount] = useState(0);
 
   const handleClick = useCallback(() => {
-    console.log("Button clicked", count);
+    console.log('Button clicked', count);
     setCount(count + 1);
   }, [count]);
 
@@ -45,7 +38,7 @@ function AppProvider({ children }: { children: ReactNode }) {
 function useAppContext() {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error("useAppContext must be used within an AppProvider");
+    throw new Error('useAppContext must be used within an AppProvider');
   }
   return context;
 }

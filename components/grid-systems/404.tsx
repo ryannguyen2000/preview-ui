@@ -12,6 +12,7 @@ const NotFound = () => {
         justifyContent: "center",
         flexDirection: "column",
       }}
+      className="w-full"
     >
       <h1 className="text-[3rem] max-sm:text-[1rem]">404 - Page Not Found</h1>
       <p>The page you're looking for doesn't exist.</p>
